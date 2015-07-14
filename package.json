@@ -1,0 +1,18 @@
+{
+  "name": "LiN-Basic",
+  "version": "0.0.1",
+  "private" : true,
+  "minimum-stability" : "dev",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-htmlmin": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-nodeunit": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "matchdep":                     "*"
+  }
+}
