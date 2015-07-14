@@ -12,6 +12,15 @@ class _ {
 		
 	}
 
+	function api($part,$ttl=0){
+		$web = new \Web();
+		$data = $web->request($this->cfg['api'] . $part);
+		$data = json_decode($data['body']);
+		$data = json_decode(json_encode($data), true);
+		
+		
+		return (array) $data;
+	}
 
 	
 }
