@@ -1,0 +1,24 @@
+{% for row in data['list'] %}
+
+	<div class="media">
+		<div class="media-left">
+			<a href="#">
+				<img class="media-object" src="{{ row['thumbnail']['path'] }}" alt="..." style="background-color: #ccc; width:64px;height:64px;">
+			</a>
+		</div>
+		<div class="media-body">
+			<h4 class="media-heading">
+				<a href="/articles/{{ row['ID'] }}/{{ row['category']['url'] }}/{{ row['publishDate']['date'] }}/{{ row['url'] }}">{{ row['heading'] }}</a>
+			</h4>
+			<div class="s g">
+				by: {{ row['author']['label'] }} | {{ row['comment_count'] }} comments | {{ row['viewed'] }} viewed
+			</div>
+			{{ row['synopsis']|raw() }}
+		</div>
+	</div>
+	
+	
+	
+	
+	
+{% endfor %}

@@ -10,9 +10,11 @@ class home extends _ {
 		$user = $this->f3->get("user");
 		$cfg = $this->cfg;
 		
-		echo $cfg['api'];
+		//test_array($cfg['api'] . "articles/_list?"); 
+
+		$data = $this->api("articles/_list?limit=0,5");
 		
-		/*
+		//test_array($data); 
 		
 		$tmpl = new \template("template.twig");
 		$tmpl->page = array(
@@ -20,12 +22,13 @@ class home extends _ {
 			"sub_section"=> "home",
 			"template"   => "home",
 			"meta"       => array(
-				"title"=> "MeetPad",
+				"title"=> "Welcome to Zoutnet",
 			),
 			"css"=>"",
 			"js"=>"",
 		);
+		$tmpl->data = $data['data'];
 		$tmpl->output();
-		*/
+		
 	}
 }

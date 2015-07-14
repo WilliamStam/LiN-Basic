@@ -1,5 +1,5 @@
 <?php
-$cfg['api'] = "http://www.zoutnet.co.za/api";
+$cfg['api'] = "http://www.zoutnet.co.za/api/";
 
 $cfg['git'] = array(
 	'username'=>"",
