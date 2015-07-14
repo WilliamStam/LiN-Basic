@@ -8,9 +8,9 @@ class home extends _ {
 	}
 	function page(){
 		$user = $this->f3->get("user");
+		$cfg = $this->cfg;
 		
-		
-		echo "hi";
+		echo $cfg['api'];
 		
 		/*
 		
