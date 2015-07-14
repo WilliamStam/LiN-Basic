@@ -21,7 +21,9 @@ if (!isLocal()) {
 
 	
 }
+if (isset($cfg['DB'])){
+	echo "<pre>" . update::db($cfg) . "</pre>";
+}
 
-echo "<pre>" . update::db($cfg) . "</pre>";
  
  ?>
