@@ -4,9 +4,10 @@ _crap/*
 cache/*
 media/*
 tmp/*
-uploads/ab/*
-backups/*
-ui/zzz/*
+.idea/*
+node_modules/*
+components/*
+vendor/*
 
 # Compiled source #
 ###################
@@ -16,6 +17,7 @@ ui/zzz/*
 *.exe
 *.o
 *.so
+*.phar
 
 # Packages #
 ############
@@ -34,7 +36,6 @@ ui/zzz/*
 ######################
 *.log
 *.sqlite
-*.accdb
 
 # OS generated files #
 ######################
@@ -42,3 +43,6 @@ ui/zzz/*
 Thumbs.db
 
 config.inc.php
+app/less/*.css
+app/less/*/*.css
+app/less/*/*/*.css
