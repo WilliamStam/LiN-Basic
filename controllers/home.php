@@ -10,7 +10,7 @@ class home extends _ {
 		$user = $this->f3->get("user");
 		
 		
-		echo "test";
+		echo "hi";
 		
 		/*
 		
