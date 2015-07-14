@@ -67,6 +67,11 @@ class template {
 		$this->vars['_isAjax'] = is_ajax();
 
 
+		$page = $_SERVER['uri'];
+		if ($page==null)$page = "/";
+		
+
+		$this->vars['_page'] = $page;
 
 
 		

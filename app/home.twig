@@ -1,8 +1,8 @@
-{% for row in data['list'] %}
+{% for row in articles['list'] %}
 
 	<div class="media">
 		<div class="media-left">
-			<a href="#">
+			<a href="/articles/{{ row['ID'] }}/{{ row['category']['url'] }}/{{ row['publishDate']['date'] }}/{{ row['url'] }}">
 				<img class="media-object" src="{{ row['thumbnail']['path'] }}" alt="..." style="background-color: #ccc; width:64px;height:64px;">
 			</a>
 		</div>

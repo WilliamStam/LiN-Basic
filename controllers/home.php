@@ -10,11 +10,11 @@ class home extends _ {
 		$user = $this->f3->get("user");
 		$cfg = $this->cfg;
 		
-		//test_array($cfg['api'] . "articles/_list?"); 
 
-		$data = $this->api("articles/_list?limit=0,5");
+		$articles = $this->api("article/_list?limit=0,5&thumb_width=64&thumb_height=64");
+		$categories = $this->api("category/_list");
 		
-		//test_array($data); 
+		
 		
 		$tmpl = new \template("template.twig");
 		$tmpl->page = array(
@@ -27,7 +27,8 @@ class home extends _ {
 			"css"=>"",
 			"js"=>"",
 		);
-		$tmpl->data = $data['data'];
+		$tmpl->articles = $articles['data'];
+		$tmpl->categories = $categories['data'];
 		$tmpl->output();
 		
 	}
