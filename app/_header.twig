@@ -1,2 +1,44 @@
-<img src="http://zoutnet.co.za/media/uploads/1/masterhead/Zoutnet.jpg" alt="" style="width:100%; max-width:769px;">
-{% include "_navbar.twig" %}
+<div class="container">
+	
+	
+
+<div class="c">
+	<img src="http://zoutnet.co.za/media/uploads/1/masterhead/Zoutnet.jpg" alt="" style="width:100%; max-width:769px;">
+</div>
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Zoutnet</a>
+			<ul class="nav nav-pills pull-left" style="margin:0;">
+				<li role="presentation"{% if _page == "/" %} class="active"{% endif %}><a href="/">Home</a></li>
+				<li role="presentation"{% if _page == "/events" %} class="active"{% endif %}><a href="/events">Events</a></li>
+			</ul>
+			<ul class="nav nav-pills pull-right" style="margin:0;">
+				<li role="presentation"><a href="http://www.zoutnet.co.za">Website</a></li>
+				
+			</ul>
+		</div>
+
+		
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav nav-pills" style="margin:0;">
+				{% for row in categories['list'] %}
+					<li role="presentation"{% if _page == "/articles/"~ row['url'] %} class="active"{% endif %}><a href="/articles/{{ row['url'] }}">{{ row['category'] }}</a></li>
+				{% endfor %}
+			</ul>
+			
+		</div>
+	</div>
+</nav>
+
+
+</div>

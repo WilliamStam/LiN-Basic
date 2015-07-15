@@ -1,0 +1,51 @@
+{% if pagination %}
+
+	<nav class="c">
+		<ul class="pagination c">
+
+			{% if pagination['previous'] >= 1 %}
+				<li>
+					<a href="?page={{ pagination['previous'] }}">&laquo;</a>
+				</li>
+			{% else %}
+				<li class="disabled"><span>&laquo;</span></li>
+
+			{% endif %}
+
+
+
+			{% for row in pagination['pages'] %}
+				<li {% if pagination['current'] == row['p'] %}class="active"{% endif %}>
+					<a href="?page={{ row['p'] }}">{{ row['p'] }}</a>
+				</li>
+			{% endfor %}
+
+
+			{% if pagination['next'] < pagination['last'] %}
+				<li>
+					<a href="?page={{ pagination['next'] }}">&raquo;</a>
+				</li>
+			{% else %}
+				<li class="disabled"><span>&raquo;</span></li>
+
+			{% endif %}
+			{% if pagination['showinfo'] =='1' %}
+				<li class="info">
+					<span>{{ pagination['info'] }}</span>
+				</li>
+			{% endif %}
+			
+		</ul>
+	</nav>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+{% endif %}

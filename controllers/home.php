@@ -9,9 +9,9 @@ class home extends _ {
 	function page(){
 		$user = $this->f3->get("user");
 		$cfg = $this->cfg;
-		
+		$page = isset($_GET['page'])?$_GET['page']:'1';
 
-		$articles = $this->api("article/_list?limit=0,5&thumb_width=64&thumb_height=64");
+		$articles = $this->api("article/_list?limit=0,5&thumb_width=64&thumb_height=64&pagination=9&page=$page");
 		$categories = $this->api("category/_list");
 		
 		
@@ -29,6 +29,7 @@ class home extends _ {
 		);
 		$tmpl->articles = $articles['data'];
 		$tmpl->categories = $categories['data'];
+		$tmpl->pagination = $articles['data']['pagination'];
 		$tmpl->output();
 		
 	}

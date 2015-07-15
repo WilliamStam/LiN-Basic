@@ -119,9 +119,6 @@ if (($f3->get("AJAX") && ($f3->get("__runTemplate")==false) || $f3->get("__runJS
 	
 
 	echo '
-		<script type="text/javascript">
-		updatetimerlist(' . json_encode($GLOBALS["output"]) . ');
-		</script>
 		</body>
 		</html>
 	';

@@ -5498,3 +5498,9 @@ body {
   font-weight: normal;
   line-height: 18px;
 }
+.no-js .navbar-toggle {
+  display: none;
+}
+.no-js .navbar-collapse {
+  display: block;
+}

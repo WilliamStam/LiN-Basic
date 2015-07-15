@@ -13,12 +13,31 @@ class _ {
 	}
 
 	function api($part,$ttl=0){
-		$web = new \Web();
-		$data = $web->request($this->cfg['api'] . $part);
-		$data = json_decode($data['body']);
-		$data = json_decode(json_encode($data), true);
+		$url = $this->cfg['api'] . $part;
+		$key = md5($url);
+		$cache = new \Cache($key);
+
+	
 		
 		
+		if ( $cache->exists($key)){
+			$data = json_decode($cache->get($key),true);
+		} else {
+			
+			$web = new \Web();
+			$data = $web->request($url);
+			$data = json_decode($data['body'],true);
+			
+			
+			$ddata = json_encode($data);
+			$cache->set($key,$ddata,2000);
+			
+			
+		}
+		
+		
+
+
 		return (array) $data;
 	}
 
