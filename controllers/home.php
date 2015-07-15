@@ -29,7 +29,7 @@ class home extends _ {
 		);
 		$tmpl->articles = $articles['data'];
 		$tmpl->categories = $categories['data'];
-		$tmpl->pagination = $articles['data']['pagination'];
+		$tmpl->pagination = isset($articles['data']['pagination'])?$articles['data']['pagination']:false;
 		$tmpl->output();
 		
 	}
