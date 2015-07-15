@@ -14,7 +14,7 @@ class home extends _ {
 		$articles = $this->api("article/_list?limit=0,5&thumb_width=64&thumb_height=64&pagination=9&page=$page");
 		$categories = $this->api("category/_list");
 		
-		
+		test_array($articles); 
 		
 		$tmpl = new \template("template.twig");
 		$tmpl->page = array(
