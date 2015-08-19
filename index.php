@@ -81,6 +81,18 @@ $f3->route('GET /thumbnail/files/@ID/@w/@h/@filename', function ($f3,$params) {
 	
 });
 
+$f3->route('GET /photo/files/@ID/@w/@h/@filename', function ($f3,$params) {
+	$web = new \Web();
+	$cfg = $f3->get("cfg");
+	$api = $cfg['api'];
+	$remoteImage = $api ."photo/files/".$params['ID']."/".$params['w']."/".$params['h']."/".$params['filename']."";
+
+	$imginfo = getimagesize($remoteImage);
+	header("Content-type: ".$imginfo['mime']);
+	readfile($remoteImage);
+	
+});
+
 
 
 
