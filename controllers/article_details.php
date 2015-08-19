@@ -1,7 +1,7 @@
 <?php
 namespace controllers;
 use \timer as timer;
-class home extends _ {
+class article_details extends _ {
 	function __construct(){
 		parent::__construct();
 		
@@ -11,24 +11,28 @@ class home extends _ {
 		$cfg = $this->cfg;
 		$page = isset($_GET['page'])?$_GET['page']:'1';
 
-		$articles = $this->api("article/_list?limit=0,5&thumb_width=64&thumb_height=64&pagination=9&page=$page");
+		$article = $this->api("article/_details?ID=".$this->f3->get("PARAMS['ID']"));
+		$article = $article['data'];
+		if ($article['ID']=='')$this->f3->error("404");
+		
 		$categories = $this->api("category/_list");
+
 		
 		//test_array($articles); 
 		
 		$tmpl = new \template("template.twig");
 		$tmpl->page = array(
-			"section"    => "home",
-			"sub_section"=> "home",
-			"template"   => "home",
+			"section"    => "articles",
+			"sub_section"=> $article['category']['url'],
+			"template"   => "article_details",
 			"meta"       => array(
-				"title"=> "Welcome to Zoutnet",
+				"title"=> "Zoutnet | ".$article['heading'],
 			),
 			"css"=>"",
 			"js"=>"",
 		);
-		$tmpl->_page = "/";
-		$tmpl->articles = $articles['data'];
+		$tmpl->article = $article;
+		$tmpl->_page = "articles/".$article['category']['url'];
 		$tmpl->categories = $categories['data'];
 		$tmpl->pagination = isset($articles['data']['pagination'])?$articles['data']['pagination']:false;
 		$tmpl->output();

@@ -1,0 +1,36 @@
+<h1>{{ article['heading'] }}</h1>
+<section>
+	<div>
+		{{ article['category']['label'] }} - Date: {{ article['publishDate']['date_display_full'] }}
+	</div>
+	<div>
+		Written by: {{ article['author']['name'] }} / Viewed: {{ article['viewed'] }}
+	</div>
+</section>
+<hr>
+<article>
+	{% if article['thumbnail']['ID'] %}
+	<div class="media-left pull-left c">
+		<img class="" src="/thumbnail/files/{{ article['thumbnail']['ID'] }}/200/200/{{ article['thumbnail']['filename_orig'] }}" alt="..." style="background-color: #ccc;">
+		<div class="caption" style="max-width: 200px; padding: 5px 0 5px 0" >
+			{{ article['thumbnail']['description']|raw() }}
+		</div>
+	
+	</div>
+	{% endif %}
+	{{ article['article']|raw() }}
+</article>
+<section class="thumbnails">
+	<div class="clearfix"></div>
+		{% for row in article['photos'] %}
+		<div style="margin-top:20px;">
+			<div class="media-left pull-left">
+			<img alt="" src="/thumbnail/files/{{ row['ID'] }}/200/200/{{ row['filename_orig'] }}">
+			</div>
+
+			{{ row['description']|raw() }}
+		</div>
+			<div class="clearfix"></div>
+		{% endfor %}
+		
+</section>

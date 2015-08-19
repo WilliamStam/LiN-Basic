@@ -66,9 +66,14 @@ class template {
 		$this->vars['_user'] = $this->f3->get('user');
 		$this->vars['_isAjax'] = is_ajax();
 
+		if ($this->vars['_page']){
+			$page = $this->vars['_page'];
+		} else {
+			$page = $_SERVER['uri'];
+			if ($page==null)$page = "/";
+		}
 
-		$page = $_SERVER['uri'];
-		if ($page==null)$page = "/";
+		
 		
 
 		$this->vars['_page'] = $page;

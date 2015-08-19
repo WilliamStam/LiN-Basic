@@ -3,7 +3,7 @@
 	
 
 <div class="c">
-	<img src="http://zoutnet.co.za/media/uploads/1/masterhead/Zoutnet.jpg" alt="" style="width:100%; max-width:769px;">
+	<img src="/app/_images/Zoutnet.jpg" alt="" style="width:100%; max-width:769px;">
 </div>
 
 <nav class="navbar navbar-default">
@@ -21,9 +21,9 @@
 				<li role="presentation"{% if _page == "/" %} class="active"{% endif %}><a href="/">Home</a></li>
 				<li role="presentation"{% if _page == "/events" %} class="active"{% endif %}><a href="/events">Events</a></li>
 			</ul>
-			<ul class="nav nav-pills pull-right" style="margin:0;">
+			<ul class="nav nav-pills pull-right" style="margin:0 20px 0 0 ;">
 				<li role="presentation"><a href="http://www.zoutnet.co.za">Website</a></li>
-				
+				<li class=""></li>
 			</ul>
 		</div>
 
@@ -32,7 +32,7 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav nav-pills" style="margin:0;">
 				{% for row in categories['list'] %}
-					<li role="presentation"{% if _page == "/articles/"~ row['url'] %} class="active"{% endif %}><a href="/articles/{{ row['url'] }}">{{ row['category'] }}</a></li>
+					<li role="presentation"{% if _page == "articles/"~ row['url'] %} class="active"{% endif %}><a href="/articles/{{ row['url'] }}">{{ row['category'] }}</a></li>
 				{% endfor %}
 			</ul>
 			

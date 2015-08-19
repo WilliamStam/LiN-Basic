@@ -13,7 +13,7 @@ class _ {
 	}
 
 	function api($part,$ttl=0){
-		$url = $this->cfg['api'] . $part;
+		$url = $this->cfg['api'] . "api/" . $part;
 		$key = md5($url);
 		$cache = new \Cache($key);
 
@@ -30,7 +30,7 @@ class _ {
 			
 			
 			$ddata = json_encode($data);
-			$cache->set($key,$ddata,2000);
+			$cache->set($key,$ddata,10);
 			
 			
 		}

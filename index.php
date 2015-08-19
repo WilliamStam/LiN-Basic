@@ -63,8 +63,23 @@ $f3->set('_v', $minVersion);
 
 
 $f3->route('GET|POST /', 'controllers\home->page');
+$f3->route('GET|POST /articles/@category', 'controllers\article_list->page');
+$f3->route('GET|POST /articles/@category/*/@ID/*', 'controllers\article_details->page');
 
 
+
+
+$f3->route('GET /thumbnail/files/@ID/@w/@h/@filename', function ($f3,$params) {
+	$web = new \Web();
+	$cfg = $f3->get("cfg");
+	$api = $cfg['api'];
+	$remoteImage = $api ."thumbnail/files/".$params['ID']."/".$params['w']."/".$params['h']."/".$params['filename']."";
+
+	$imginfo = getimagesize($remoteImage);
+	header("Content-type: ".$imginfo['mime']);
+	readfile($remoteImage);
+	
+});
 
 
 
