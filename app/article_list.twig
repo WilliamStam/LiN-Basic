@@ -13,8 +13,10 @@
 				<a href="/articles/{{ row['category']['url'] }}/{{ row['publishDate']['date'] }}/{{ row['ID'] }}/{{ row['url'] }}">{{ row['heading'] }}</a>
 			</h4>
 			<div class="s g">
-				<strong>{{ row['category']['label'] }}</strong>
-				| by: {{ row['author']['label'] }} | {{ row['comment_count'] }} comments | {{ row['viewed'] }} viewed
+				<strong>{{ row['category']['label'] }}</strong> |
+				<em>{{ row['publishDate']['date_time'] }}</em>
+
+				| by: {{ row['author']['label'] }} | {{ row['comment_count'] }} comments | {{ row['viewed'] }} viewed 
 			</div>
 			{{ row['synopsis']|raw() }}
 		</div>
