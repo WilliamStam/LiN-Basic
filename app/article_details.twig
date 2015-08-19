@@ -23,6 +23,7 @@
 <section class="thumbnails">
 	<div class="clearfix"></div>
 		{% for row in article['photos'] %}
+			{% if row['ID'] != article['thumbnail']['ID'] %}
 		<div style="margin-top:20px;">
 			<div class="media-left pull-left">
 			<img alt="" src="/photo/files/{{ row['ID'] }}/200/200/{{ row['filename_orig'] }}">
@@ -31,6 +32,7 @@
 			{{ row['description']|raw() }}
 		</div>
 			<div class="clearfix"></div>
+	{% endif %}
 		{% endfor %}
 		
 </section>
