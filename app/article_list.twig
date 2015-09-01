@@ -1,32 +1,33 @@
-	
-
 {% for row in articles['list'] %}
-
+	
 	<div class="media">
 		<div class="media-left">
 			
 			<a href="/articles/{{ row['category']['url'] }}/{{ row['publishDate']['date'] }}/{{ row['ID'] }}/{{ row['url'] }}">
 				{% if row['thumbnail']['ID'] %}
-				<img class="media-object" src="{{ row['thumbnail']['path'] }}" style="background-color: #ccc; width:64px;height:64px;">
+					<img class="media-object" src="{{ row['thumbnail']['path'] }}" style="background-color: #ccc; width:64px;height:64px;">
 				{% else %}
 					<div style="width:64px;height:64px;"></div>
 				{% endif %}
 			</a>
-			
+		
 		</div>
 		<div class="media-body">
 			<h4 class="media-heading">
 				<a href="/articles/{{ row['category']['url'] }}/{{ row['publishDate']['date'] }}/{{ row['ID'] }}/{{ row['url'] }}">{{ row['heading'] }}</a>
 			</h4>
+			
 			<div class="s g">
 				<strong>{{ row['category']['label'] }}</strong> |
 				<em title="{{ row['publishDate']['date_time'] }}">{{ row['publishDate']['timeago'] }}</em>
-
-				| by: {{ row['author']['label'] }} | {{ row['comment_count'] }} comments | {{ row['viewed'] }} viewed 
+				
+				                                                | by: {{ row['author']['label'] }}
+				                                                | {{ row['comment_count'] }} comments
+				                                                | {{ row['viewed'] }} viewed
 			</div>
 			{{ row['synopsis']|raw() }}
 		</div>
 	</div>
-	
+
 {% endfor %}
 {% include "_pagination.twig" %}
