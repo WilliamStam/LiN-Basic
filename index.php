@@ -69,7 +69,7 @@ $f3->route('GET|POST /articles/@category/*/@ID/*', 'controllers\article_details-
 $f3->route('GET|POST /events', 'controllers\event_list->page');
 $f3->route('GET|POST /events/@ID/*', 'controllers\event_details->page');
 
-$f3->route('GET|POST /about', 'controllers\about->page');
+$f3->route('GET|POST /contact', 'controllers\contact->page');
 
 
 

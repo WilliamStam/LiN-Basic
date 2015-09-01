@@ -1,7 +1,7 @@
 <?php
 namespace controllers;
 use \timer as timer;
-class about extends _ {
+class contact extends _ {
 	function __construct(){
 		parent::__construct();
 		
@@ -18,11 +18,11 @@ class about extends _ {
 		
 		$tmpl = new \template("template.twig");
 		$tmpl->page = array(
-			"section"    => "about",
-			"sub_section"=> "about",
-			"template"   => "about",
+			"section"    => "contact",
+			"sub_section"=> "contact",
+			"template"   => "contact",
 			"meta"       => array(
-				"title"=> "Zoutnet | About Us",
+				"title"=> "Zoutnet | Contact Us",
 			),
 			"css"=>"",
 			"js"=>"",
