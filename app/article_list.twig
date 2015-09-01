@@ -4,9 +4,15 @@
 
 	<div class="media">
 		<div class="media-left">
+			
 			<a href="/articles/{{ row['category']['url'] }}/{{ row['publishDate']['date'] }}/{{ row['ID'] }}/{{ row['url'] }}">
-				<img class="media-object" src="{{ row['thumbnail']['path'] }}" alt="..." style="background-color: #ccc; width:64px;height:64px;">
+				{% if row['thumbnail']['ID'] %}
+				<img class="media-object" src="{{ row['thumbnail']['path'] }}" style="background-color: #ccc; width:64px;height:64px;">
+				{% else %}
+					<div style="width:64px;height:64px;"></div>
+				{% endif %}
 			</a>
+			
 		</div>
 		<div class="media-body">
 			<h4 class="media-heading">
