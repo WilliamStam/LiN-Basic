@@ -1,0 +1,44 @@
+.event-calendar .days-of-the-week th {
+  background: none repeat scroll 0 0 #CCCCCC;
+  border: 1px solid #999999;
+  text-align: center;
+}
+.event-calendar .daycell {
+  border: 1px solid #999;
+}
+.event-calendar .daycell > div {
+  min-height: 80px;
+}
+.event-calendar .daycell a {
+  width: 25px;
+  float: left;
+  padding: 3px;
+}
+.event-calendar .daycell a:hover {
+  background-color: #DEEBFF;
+}
+.event-calendar .daycell .cat-icon {
+  width: 25px;
+}
+.event-calendar .daycell .day-number {
+  background: none repeat scroll 0 0 #999999;
+  color: #FFFFFF;
+  float: right;
+  font-weight: bold;
+  margin: -5px -5px 0 0;
+  padding: 5px ;
+  text-align: center;
+  width: 30px;
+}
+.event-calendar .daycell.old .day-number {
+  background: none repeat scroll 0 0 #ccc;
+}
+.event-calendar .daycell.old a {
+  opacity: 0.2;
+}
+.event-calendar .daycell.old a:hover {
+  opacity: 1;
+}
+.record.active td {
+  background-color: #DEEBFF!important;
+}
