@@ -4,3 +4,6 @@
 .table thead th {
   text-align: left;
 }
+.table thead th h4 {
+  margin-top: 40px;
+}
