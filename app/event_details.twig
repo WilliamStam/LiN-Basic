@@ -1,0 +1,98 @@
+<h3>{{ data['heading'] }}</h3>
+
+<div>
+    {% if data['dateStart']['date_display_full'] %}
+    <div>
+        <strong><em>From:</em>
+        </strong> {{ data['dateStart']['date_display_full'] }}
+        {% if data['dateStart']['time_m'] != "00:00 AM" %} at {{ data['dateStart']['time_m'] }}{% endif %}
+    </div>
+    {% endif %}
+</div>
+<div>
+    {% if data['dateEnd']['date_display_full'] %}
+        <div>
+            <strong><em>To:</em>
+            </strong> {{ data['dateEnd']['date_display_full'] }}
+            {% if data['dateEnd']['time_m'] != "00:00 AM" %} at {{ data['dateEnd']['time_m'] }}{% endif %}
+        </div>
+    {% endif %}
+</div>
+
+
+
+<div>
+    {% if data['location'] %}
+        <div><strong><em>Location:</em>
+            </strong> {{ data['location'] }}</div>
+    {% endif %}
+</div>
+
+<hr>
+
+<div style="text-align: justify;"><strong>Details:</strong> {{ data['text']|raw }}</div>
+
+<hr>
+
+{% if data['contactname'] %}
+<div><strong><em>Contact Person:</em>
+    </strong> {{ data['contactname'] }}</div>
+{% endif %}
+{% if data['contactnumber'] %}
+<div><strong><em>Tel:</em>
+    </strong> {{ data['contactnumber'] }}</div>
+{% endif %}
+{% if data['contactemail'] %}
+<div><strong><em>Email:</em>
+    </strong> {{ data['contactemail'] }}</div>
+{% endif %}
+
+<h4 style=margin-top:70px;>Upcoming Events</h4>
+
+
+<table class="table table-condensed records">
+
+    <tbody>
+    {% for row in list %}
+        {% if last != row['dateStart']['month_year']  %}
+            <tr>
+                <td colspan="2" class="heading">
+                    {{ row['dateStart']['month_year'] }}
+                </td>
+            </tr>
+        {% endif %}
+        {% set last = row['dateStart']['month_year'] %}
+        <tr class="record{%  if data['ID']==row['ID'] %} active{% endif %}">
+            <td class="c span1" title="{{ row['category'] }}">
+                <img src="/ui/_images/events/{{ row['categoryID'] }}.png" style="height:30px;" alt=""/>
+            </td>
+            <td>
+                <a href="/events/{{ row['ID'] }}/{{ row['url'] }}" class="event-item">{{ row['heading'] }}</a>
+
+                <div class="s dg">
+                    {% if row['location'] %}
+                        <div class="info-item">
+                            <em>Where: </em>{{ row['location'] }}
+                        </div>
+                    {% endif %}
+                    {% if row['dateStart']['date'] %}
+                        <div class="info-item">
+                            <em>Start: </em>{{ row['dateStart']['date_display_micro'] }} {% if  row['dateStart']['time'] != '00:00' %}&nbsp;({{ row['dateStart']['time_m'] }}){% endif %}
+                        </div>
+                    {% endif %}
+                    {% if row['dateEnd']['date'] %}
+                        <div class="info-item">
+                            <em>End:&nbsp; </em>{{ row['dateEnd']['date_display_micro'] }} {% if  row['dateEnd']['time'] != '00:00' %}&nbsp;({{ row['dateEnd']['time_m'] }}){% endif %}
+                        </div>
+                    {% endif %}
+
+                </div>
+            </td>
+
+        </tr>
+
+    {% endfor %}
+    </tbody>
+
+</table>
+

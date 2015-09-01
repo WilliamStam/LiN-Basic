@@ -1,7 +1,7 @@
 <div class="c">
 	<ul class="nav nav-pills nav-justified c" style="margin-bottom:20px;margin-left:auto; margin-right:auto;">
 		<li role="presentation"{% if _page == "/" %} class="active"{% endif %}><a href="/">Home</a></li>
-		<li role="presentation"{% if _page == "/events" %} class="active"{% endif %}><a href="/events">Events</a></li>
+		<li role="presentation"{% if _page == "events/list" %} class="active"{% endif %}><a href="/events">Events</a></li>
 		{% for row in categories['list'] %}
 			<li role="presentation"{% if _page == "articles/"~ row['url'] %} class="active"{% endif %}><a href="/articles/{{ row['url'] }}">{{ row['category'] }}</a></li>
 		{% endfor %}

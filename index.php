@@ -66,6 +66,9 @@ $f3->route('GET|POST /', 'controllers\home->page');
 $f3->route('GET|POST /articles/@category', 'controllers\article_list->page');
 $f3->route('GET|POST /articles/@category/*/@ID/*', 'controllers\article_details->page');
 
+$f3->route('GET|POST /events', 'controllers\event_list->page');
+$f3->route('GET|POST /events/@ID/*', 'controllers\event_details->page');
+
 
 
 
@@ -86,6 +89,17 @@ $f3->route('GET /photo/files/@ID/@w/@h/@filename', function ($f3,$params) {
 	$cfg = $f3->get("cfg");
 	$api = $cfg['api'];
 	$remoteImage = $api ."photo/files/".$params['ID']."/".$params['w']."/".$params['h']."/".$params['filename']."";
+
+	$imginfo = getimagesize($remoteImage);
+	header("Content-type: ".$imginfo['mime']);
+	readfile($remoteImage);
+	
+});
+$f3->route('GET /ui/_images/events/@filename', function ($f3,$params) {
+	$web = new \Web();
+	$cfg = $f3->get("cfg");
+	$api = $cfg['api'];
+	$remoteImage = $api ."ui/_images/events/".$params['filename']."";
 
 	$imginfo = getimagesize($remoteImage);
 	header("Content-type: ".$imginfo['mime']);
