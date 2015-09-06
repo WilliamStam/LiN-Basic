@@ -8,6 +8,7 @@ class home extends _ {
 	}
 	function page(){
 		$user = $this->f3->get("user");
+		$domain = $this->f3->get("domain");
 		$cfg = $this->cfg;
 		$page = isset($_GET['page'])?$_GET['page']:'1';
 
@@ -22,7 +23,7 @@ class home extends _ {
 			"sub_section"=> "home",
 			"template"   => "home",
 			"meta"       => array(
-				"title"=> "Welcome to Zoutnet",
+				"title"=> "Welcome to ".$domain['domainname'],
 			),
 			"css"=>"",
 			"js"=>"",

@@ -58,7 +58,7 @@ class template {
 		$this->vars['_cfg'] = $cfg;
 		$this->vars['_folder'] = $this->vars['folder'];
 
-		$this->vars['_domain'] = "http://".$_SERVER['HTTP_HOST'];
+		$this->vars['_domain'] =  $this->f3->get('domain');
 
 
 		
@@ -100,6 +100,7 @@ class template {
 			);
 		}
 
+		//test_array($this->vars); 
 
 		if (isset($this->vars['page'])) {
 			

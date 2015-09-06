@@ -29,10 +29,7 @@ if (file_exists("config.inc.php")) {
 }
 
 
-
-		
-		
-		$f3->set('AUTOLOAD', './|lib/|controllers/|inc/|/modules/');
+$f3->set('AUTOLOAD', './|lib/|controllers/|inc/|/modules/');
 $f3->set('PLUGINS', 'vendor/bcosca/fatfree/lib/');
 $f3->set('CACHE', true);
 
@@ -42,9 +39,14 @@ $f3->set('DEBUG',3);
 $f3->set('TZ', 'Africa/Johannesburg');
 
 
+$domain = api_fetch("domain/_details",$ttl=0);
+$domain = $domain['data'];
+if ($domain['ID']==''){
+	$f3->error("404");
+}
+$f3->set("domain",$domain);
 
-
-
+//test_array($domain); 
 
 
 
