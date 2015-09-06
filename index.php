@@ -39,7 +39,7 @@ $f3->set('DEBUG',3);
 $f3->set('TZ', 'Africa/Johannesburg');
 
 
-$domain = api_fetch("domain/_details",$ttl=0);
+$domain = api_fetch("domain/_micro",$ttl=0);
 $domain = $domain['data'];
 if ($domain['ID']==''){
 	$f3->error("404");
