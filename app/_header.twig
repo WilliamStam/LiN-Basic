@@ -6,7 +6,7 @@
 	<img src="/app/_images/masterhead.png"  alt="" style="width:100%; max-width:500px;">
 </div>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style='margin:0;'>
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -38,18 +38,23 @@
 			<ul class="nav nav-pills pull-right">
 				<li role="presentation"{% if _page == "contact" %} class="active"{% endif %}><a href="/contact">Contact Us</a></li>
 				<li role="presentation"><a href="http://{{ _domain['prefered_url']['url'] }}">Website</a></li>
-			</ul><ul class="nav nav-pills" style="margin:0;">
-				{% for row in categories['list'] %}
-					{% if row['url']!='news' and row['url']!='sport' %}
-					<li role="presentation"{% if _page == "articles/"~ row['url'] %} class="active"{% endif %}><a href="/articles/{{ row['url'] }}">{{ row['category'] }}</a></li>
-					{% endif %}
-				{% endfor %}
 			</ul>
 			
 			
 		</div>
 	</div>
 </nav>
-
-
+</div>
+<div style='margin-bottom:20px;'>
+	<div class="container">
+		<ul class="nav nav-pills pull-right" style="margin:0;">
+			{% for row in categories['list'] %}
+				{% if row['url']!='news' and row['url']!='sport' %}
+					<li role="presentation"{% if _page == "articles/"~ row['url'] %} class="active"{% endif %}><a href="/articles/{{ row['url'] }}">{{ row['category'] }}</a></li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+		<div class="clearfix"></div>
+	</div>
+	
 </div>
