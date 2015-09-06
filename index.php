@@ -37,6 +37,13 @@ $f3->set('DEBUG',3);
 
 $f3->set('TZ', 'Africa/Johannesburg');
 
+
+
+
+
+
+
+
 //$f3->set('ONERROR', 'Error::handler');
 $f3->set('ONERRORd',
 	function($f3) {
@@ -72,6 +79,15 @@ $f3->route('GET|POST /events/@ID/*', 'controllers\event_details->page');
 $f3->route('GET|POST /contact', 'controllers\contact->page');
 
 
+
+$f3->route('GET /url', function ($f3,$params) {
+	$url = strtolower($_SERVER['HTTP_HOST']);
+	if (substr($url, 0, 4) == "www.") $url = str_replace("www.", "", $url);
+	
+	
+	test_array($url); 
+	
+});
 
 
 $f3->route('GET /thumbnail/files/@ID/@w/@h/@filename', function ($f3,$params) {
