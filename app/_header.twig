@@ -37,7 +37,7 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav nav-pills pull-right">
 				<li role="presentation"{% if _page == "contact" %} class="active"{% endif %}><a href="/contact">Contact Us</a></li>
-				<li role="presentation"><a href="http://www.zoutnet.co.za">Website</a></li>
+				<li role="presentation"><a href="http://{{ _domain['prefered_url']['url'] }}">Website</a></li>
 			</ul><ul class="nav nav-pills" style="margin:0;">
 				{% for row in categories['list'] %}
 					{% if row['url']!='news' and row['url']!='sport' %}
