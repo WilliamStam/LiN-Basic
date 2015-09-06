@@ -29,8 +29,7 @@ if (file_exists("config.inc.php")) {
 }
 
 
-$url = api();
-$cfg['api'] = "http://".$url."/";
+
 		
 		
 		$f3->set('AUTOLOAD', './|lib/|controllers/|inc/|/modules/');
@@ -49,13 +48,10 @@ $f3->set('TZ', 'Africa/Johannesburg');
 
 
 
-//$f3->set('ONERROR', 'Error::handler');
 $f3->set('ONERRORd',
 	function($f3) {
-		// recursively clear existing output buffers:
 		while (ob_get_level())
 			ob_end_clean();
-		// your fresh page here:
 		echo $f3->get('ERROR.text');
 		print_r($f3->get('ERROR.stack'));
 	}
@@ -84,27 +80,7 @@ $f3->route('GET|POST /events/@ID/*', 'controllers\event_details->page');
 $f3->route('GET|POST /contact', 'controllers\contact->page');
 
 
-function api(){
-	$url = strtolower($_SERVER['HTTP_HOST']);
-	if (substr($url, 0, 4) == "www.") $url = str_replace("www.", "", $url);
-	
-	if (substr($url,strpos($url,"."))=='.local'){
-		
-	} else {
-		$url = substr(substr($url,strpos($url,".")),1);
-	}
-	
-	//$url = substr($url,strpos($url,"."));
-	return $url;
-}
 
-$f3->route('GET /url', function ($f3,$params) {
-	
-	$url = api();
-	
-	test_array($url); 
-	
-});
 
 
 $f3->route('GET /thumbnail/files/@ID/@w/@h/@filename', function ($f3,$params) {

@@ -13,30 +13,10 @@ class _ {
 	}
 
 	function api($part,$ttl=0){
-		$url = $this->cfg['api'] . "api/" . $part;
-		$key = md5($url);
-		$cache = new \Cache($key);
+		
+		$data = api_fetch($part,$ttl=0);
 
-	
 		
-		
-		if ( $cache->exists($key)){
-			$data = json_decode($cache->get($key),true);
-		} else {
-			
-			$web = new \Web();
-			$data = $web->request($url);
-			$data = json_decode($data['body'],true);
-			
-			
-			$ddata = json_encode($data);
-			$cache->set($key,$ddata,10);
-			
-			
-		}
-		
-		
-
 
 		return (array) $data;
 	}

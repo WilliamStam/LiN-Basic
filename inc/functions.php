@@ -1,5 +1,38 @@
 <?php
 
+function api_fetch($part,$ttl=0){
+	$url = strtolower($_SERVER['HTTP_HOST']);
+	if (substr($url, 0, 4) == "www.") $url = str_replace("www.", "", $url);
+	
+	if (substr($url,strpos($url,"."))=='.local'){
+		$url = "lin.local";
+	} else {
+		$url = substr(substr($url,strpos($url,".")),1);
+	}
+	
+
+	
+	$url = "http://".$url . "/api/" . $part;
+	$key = md5($url);
+	$cache = new \Cache($key);
+	//test_array($url);
+	if ( $cache->exists($key)){
+		$data = json_decode($cache->get($key),true);
+	} else {
+		
+		$web = new \Web();
+		$data = $web->request($url);
+		$data = json_decode($data['body'],true);
+		
+		$ddata = json_encode($data);
+		$cache->set($key,$ddata,$ttl);
+	}
+	
+	//test_array($data); 
+	//$url = substr($url,strpos($url,"."));
+	return $data;
+}
+
 
 function toAscii($str, $replace=array(), $delimiter='-') {
 	if( !empty($replace) ) {
