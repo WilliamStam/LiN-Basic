@@ -86,10 +86,9 @@ function api(){
 	if (substr($url,strpos($url,"."))=='.local'){
 		
 	} else {
-		$url = substr($url,strpos($url,"."));
-		
-		
+		$url = substr(substr($url,strpos($url,".")),1);
 	}
+	
 	//$url = substr($url,strpos($url,"."));
 	return $url;
 }
