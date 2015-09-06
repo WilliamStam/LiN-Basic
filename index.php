@@ -30,7 +30,7 @@ if (file_exists("config.inc.php")) {
 
 
 $url = api();
-$cfg['api'] =$url."/";
+$cfg['api'] = "http://www.".$url."/";
 		
 		
 		$f3->set('AUTOLOAD', './|lib/|controllers/|inc/|/modules/');
