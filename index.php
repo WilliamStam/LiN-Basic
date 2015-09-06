@@ -28,7 +28,12 @@ if (file_exists("config.inc.php")) {
 	require_once('config.inc.php');
 }
 
-$f3->set('AUTOLOAD', './|lib/|controllers/|inc/|/modules/');
+
+$url = api();
+$cfg['api'] =$url."/";
+		
+		
+		$f3->set('AUTOLOAD', './|lib/|controllers/|inc/|/modules/');
 $f3->set('PLUGINS', 'vendor/bcosca/fatfree/lib/');
 $f3->set('CACHE', true);
 
