@@ -79,11 +79,22 @@ $f3->route('GET|POST /events/@ID/*', 'controllers\event_details->page');
 $f3->route('GET|POST /contact', 'controllers\contact->page');
 
 
-
-$f3->route('GET /url', function ($f3,$params) {
+function api(){
 	$url = strtolower($_SERVER['HTTP_HOST']);
 	if (substr($url, 0, 4) == "www.") $url = str_replace("www.", "", $url);
 	
+	if (substr($url,strpos($url,"."))=='.local'){
+		
+	} else {
+		
+	}
+	//$url = substr($url,strpos($url,"."));
+	return $url;
+}
+
+$f3->route('GET /url', function ($f3,$params) {
+	
+	$url = api();
 	
 	test_array($url); 
 	
