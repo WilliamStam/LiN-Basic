@@ -90,7 +90,7 @@ $f3->route('GET /thumbnail/files/@ID/@w/@h/@filename', function ($f3,$params) {
 	$cfg = $f3->get("cfg");
 	$api = $cfg['api'];
 	$remoteImage = $api ."thumbnail/files/".$params['ID']."/".$params['w']."/".$params['h']."/".$params['filename']."";
-
+	$remoteImage = str_replace(" ", "%20", $remoteImage);
 	$imginfo = getimagesize($remoteImage);
 	header("Content-type: ".$imginfo['mime']);
 	readfile($remoteImage);
@@ -102,7 +102,7 @@ $f3->route('GET /photo/files/@ID/@w/@h/@filename', function ($f3,$params) {
 	$cfg = $f3->get("cfg");
 	$api = $cfg['api'];
 	$remoteImage = $api ."photo/files/".$params['ID']."/".$params['w']."/".$params['h']."/".$params['filename']."";
-
+	$remoteImage = str_replace(" ", "%20", $remoteImage);
 	$imginfo = getimagesize($remoteImage);
 	header("Content-type: ".$imginfo['mime']);
 	readfile($remoteImage);
