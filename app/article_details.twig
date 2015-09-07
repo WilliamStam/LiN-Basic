@@ -26,7 +26,9 @@
 			{% if row['ID'] != article['thumbnail']['ID'] %}
 		<div style="margin-top:20px;">
 			<div class="media-left pull-left">
+				<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" target='_blank'>
 			<img alt="" src="/photo/files/{{ row['ID'] }}/200/200/{{ row['filename_orig'] }}">
+				</a>
 			</div>
 
 			{{ row['description']|raw() }}
