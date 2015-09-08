@@ -12,7 +12,7 @@ class article_search extends _ {
 		$page = isset($_GET['page'])?$_GET['page']:'1';
 		$catID = isset($_GET['catID'])?$_GET['catID']:'';
 		$search = isset($_GET['search'])?$_GET['search']:'';
-		
+		$domain = $this->f3->get("domain");
 		
 		
 		//test_array($category); 
@@ -27,7 +27,7 @@ class article_search extends _ {
 			"sub_section"=> 'search',
 			"template"   => "article_search",
 			"meta"       => array(
-				"title"=> "Zoutnet | Search | ".$search,
+				"title"=> $domain['domainname'] . " | Search | ".$search,
 			),
 			"css"=>"",
 			"js"=>"",

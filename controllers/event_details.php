@@ -10,7 +10,7 @@ class event_details extends _ {
 		$user = $this->f3->get("user");
 		$cfg = $this->cfg;
 		$page = isset($_GET['page'])?$_GET['page']:'1';
-
+		$domain = $this->f3->get("domain");
 		$data = $this->api("event/_details?ID=".$this->f3->get("PARAMS['ID']"));
 		$data = $data['data'];
 		if ($data['ID']=='')$this->f3->error("404");
@@ -28,7 +28,7 @@ class event_details extends _ {
 			"sub_section"=> "events",
 			"template"   => "event_details",
 			"meta"       => array(
-				"title"=> "Zoutnet | ".$data['heading'],
+				"title"=> $domain['domainname'] . " | ".$data['heading'],
 			),
 			"css"=>"",
 			"js"=>"",

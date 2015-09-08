@@ -10,7 +10,7 @@ class article_details extends _ {
 		$user = $this->f3->get("user");
 		$cfg = $this->cfg;
 		$page = isset($_GET['page'])?$_GET['page']:'1';
-
+		$domain = $this->f3->get("domain");
 		$article = $this->api("article/_details?ID=".$this->f3->get("PARAMS['ID']"));
 		$article = $article['data'];
 		if ($article['ID']=='')$this->f3->error("404");
@@ -25,7 +25,7 @@ class article_details extends _ {
 			"sub_section"=> $article['category']['url'],
 			"template"   => "article_details",
 			"meta"       => array(
-				"title"=> "Zoutnet | ".$article['heading'],
+				"title"=> $domain['domainname'] . " | ".$article['heading'],
 			),
 			"css"=>"",
 			"js"=>"",

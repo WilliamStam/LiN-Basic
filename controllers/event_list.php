@@ -10,7 +10,7 @@ class event_list extends _ {
 		$user = $this->f3->get("user");
 		$cfg = $this->cfg;
 		$page = isset($_GET['page'])?$_GET['page']:'1';
-		
+		$domain = $this->f3->get("domain");
 		
 		
 		$data = $this->api("event/_list?limit=0,100&daterange=monthfuture&orderby=dateStart+ASC");
@@ -28,7 +28,7 @@ class event_list extends _ {
 			"sub_section"=> "list",
 			"template"   => "event_list",
 			"meta"       => array(
-				"title"=> "Zoutnet | Events",
+				"title"=> $domain['domainname']." | Events",
 			),
 			"css"=>"",
 			"js"=>"",

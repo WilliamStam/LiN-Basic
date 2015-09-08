@@ -10,7 +10,7 @@ class article_list extends _ {
 		$user = $this->f3->get("user");
 		$cfg = $this->cfg;
 		$page = isset($_GET['page'])?$_GET['page']:'1';
-		
+		$domain = $this->f3->get("domain");
 		$category = $this->f3->get("PARAMS['category']");
 		$category = $this->api("category/_details?ID=$category");
 		$category = $category['data'];
@@ -27,7 +27,7 @@ class article_list extends _ {
 			"sub_section"=> $category['url'],
 			"template"   => "article_list",
 			"meta"       => array(
-				"title"=> "Zoutnet | ".$category['category'],
+				"title"=> $domain['domainname'] . " | ".$category['category'],
 			),
 			"css"=>"",
 			"js"=>"",

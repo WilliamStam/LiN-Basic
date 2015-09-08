@@ -10,7 +10,7 @@ class contact extends _ {
 		$user = $this->f3->get("user");
 		$cfg = $this->cfg;
 		$page = isset($_GET['page'])?$_GET['page']:'1';
-
+		$domain = $this->f3->get("domain");
 		
 		
 		//test_array($articles); 
@@ -21,7 +21,7 @@ class contact extends _ {
 			"sub_section"=> "contact",
 			"template"   => "contact",
 			"meta"       => array(
-				"title"=> "Zoutnet | Contact Us",
+				"title"=> $domain['domainname'] . " | Contact Us",
 			),
 			"css"=>"",
 			"js"=>"",
