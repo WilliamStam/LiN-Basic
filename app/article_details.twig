@@ -24,24 +24,22 @@
 	<div class="clearfix"></div>
 	{% for row in article['photos'] %}
 		{% if row['ID'] != article['thumbnail']['ID'] and row['description']=='' %}
-			<div style="margin-top:20px;">
-				<div class="media-left pull-left">
-					<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" target='_blank'>
-						<img alt="" src="/photo/files/{{ row['ID'] }}/200/200/{{ row['filename_orig'] }}">
+			
+					<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" class='media-left pull-left' target='_blank' style='width:200px; height:200px; background-color: #ccc; float:left; margin:10px;'>
+						<img alt="" src="/photo/files/{{ row['ID'] }}/200/200/{{ row['filename_orig'] }}" >
 					</a>
-				</div>
 				
-				{{ row['description']|raw() }}
-			</div>
-			<div class="clearfix"></div>
+				
 		{% endif %}
 	{% endfor %}
+	<div class="clearfix"></div>
+	
 	<hr>
 		{% for row in article['photos'] %}
 			{% if row['ID'] != article['thumbnail']['ID'] and row['description']!='' %}
 			<div style="margin-top:20px;">
 				<div class="media-left pull-left">
-					<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" target='_blank'>
+					<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" target='_blank' style='width:200px; height:200px; background-color: #ccc;'>
 				<img alt="" src="/photo/files/{{ row['ID'] }}/200/200/{{ row['filename_orig'] }}">
 					</a>
 				</div>
