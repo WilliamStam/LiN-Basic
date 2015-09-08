@@ -52,8 +52,7 @@
 
 
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<!--
+{% if _domain['googleAnalyticsKey'] %}
 <script>
 	(function (b, o, i, l, e, r) {
 		b.GoogleAnalyticsObject = l;
@@ -66,7 +65,7 @@
 		e.src = '//www.google-analytics.com/analytics.js';
 		r.parentNode.insertBefore(e, r)
 	}(window, document, 'script', 'ga'));
-	ga('create', 'UA-XXXXX-X');
+	ga('create', '{{  _domain['googleAnalyticsKey'] }}');
 	ga('send', 'pageview');
 </script>
--->
+{% endif %}
