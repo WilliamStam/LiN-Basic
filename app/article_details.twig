@@ -20,21 +20,36 @@
 	{% endif %}
 	{{ article['article']|raw() }}
 </article>
-<section class="thumbnails">
+<section class="thumbnails" style='margin-top:20px;'>
 	<div class="clearfix"></div>
-		{% for row in article['photos'] %}
-			{% if row['ID'] != article['thumbnail']['ID'] %}
-		<div style="margin-top:20px;">
-			<div class="media-left pull-left">
-				<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" target='_blank'>
-			<img alt="" src="/photo/files/{{ row['ID'] }}/200/200/{{ row['filename_orig'] }}">
-				</a>
+	{% for row in article['photos'] %}
+		{% if row['ID'] != article['thumbnail']['ID'] and row['description']=='' %}
+			<div style="margin-top:20px;">
+				<div class="media-left pull-left">
+					<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" target='_blank'>
+						<img alt="" src="/photo/files/{{ row['ID'] }}/200/200/{{ row['filename_orig'] }}">
+					</a>
+				</div>
+				
+				{{ row['description']|raw() }}
 			</div>
-
-			{{ row['description']|raw() }}
-		</div>
 			<div class="clearfix"></div>
-	{% endif %}
+		{% endif %}
+	{% endfor %}
+	<hr>
+		{% for row in article['photos'] %}
+			{% if row['ID'] != article['thumbnail']['ID'] and row['description']!='' %}
+			<div style="margin-top:20px;">
+				<div class="media-left pull-left">
+					<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" target='_blank'>
+				<img alt="" src="/photo/files/{{ row['ID'] }}/200/200/{{ row['filename_orig'] }}">
+					</a>
+				</div>
+	
+				{{ row['description']|raw() }}
+			</div>
+			<div class="clearfix"></div>
+			{% endif %}
 		{% endfor %}
 		
 </section>
