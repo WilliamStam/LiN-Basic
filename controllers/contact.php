@@ -26,7 +26,7 @@ class contact extends _ {
 			"css"=>"",
 			"js"=>"",
 		);
-		$tmpl->_page = "about";
+		$tmpl->_page = "contact";
 		$tmpl->output();
 		
 	}

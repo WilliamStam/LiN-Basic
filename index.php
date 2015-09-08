@@ -69,6 +69,8 @@ $f3->set("_api_url",$url);
 
 $domain = api_fetch("domain/_micro",$f3->get("ttl"));
 $domain = $domain['data'];
+
+ 
 if ($domain['ID']==''){
 	$f3->error("404");
 }
