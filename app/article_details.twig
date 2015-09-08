@@ -11,7 +11,7 @@
 <article>
 	{% if article['thumbnail']['ID'] %}
 	<div class="media-left pull-left c"><a href="/photo/files/{{ article['thumbnail']['ID'] }}/600/600/{{ article['thumbnail']['filename_orig'] }}" target='_blank' style='width:200px;' class='c'>
-		<img class="" src="/photo/files/{{ article['thumbnail']['ID'] }}/200/200/{{ article['thumbnail']['filename_orig'] }}" alt="..." style="background-color: #ccc;">
+		<img class="" src="/thumbnail/files/{{ article['thumbnail']['ID'] }}/200/200/{{ article['thumbnail']['filename_orig'] }}" alt="..." style="background-color: #ccc;">
 			</a>
 		<div class="caption" style="max-width: 200px; padding: 5px 0 5px 0" >
 			{{ article['thumbnail']['description']|raw() }}
@@ -29,7 +29,7 @@
 		{% if row['ID'] != article['thumbnail']['ID'] and row['description']=='' %}
 			
 					<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" class='media-left pull-left c' target='_blank' style='float:left; margin:10px;'>
-						<img alt="" src="/photo/files/{{ row['ID'] }}/150/150/{{ row['filename_orig'] }}" >
+						<img alt="" src="/thumbnail/files/{{ row['ID'] }}/150/150/{{ row['filename_orig'] }}" >
 					</a>
 				
 				
@@ -43,7 +43,7 @@
 			<div style="margin-top:20px;">
 				<div class="media-left pull-left">
 					<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" target='_blank' style='width:200px;' class='c'>
-				<img alt="" src="/photo/files/{{ row['ID'] }}/150/150/{{ row['filename_orig'] }}">
+				<img alt="" src="/thumbnail/files/{{ row['ID'] }}/150/150/{{ row['filename_orig'] }}">
 					</a>
 				</div>
 	
