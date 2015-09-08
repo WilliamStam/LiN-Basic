@@ -26,7 +26,7 @@ require_once('config.default.inc.php');
 if (file_exists("config.inc.php")) {
 	require_once('config.inc.php');
 }
-	$f3->set("ttl",false);
+$f3->set("ttl",false);
 
 $f3->set('AUTOLOAD', './|lib/|controllers/|inc/|/modules/');
 $f3->set('PLUGINS', 'vendor/bcosca/fatfree/lib/');
@@ -37,6 +37,35 @@ $f3->set('DEBUG',3);
 
 $f3->set('TZ', 'Africa/Johannesburg');
 $f3->set("_api_hits",array());
+
+
+$url = strtolower($_SERVER['HTTP_HOST']);
+if (substr($url, 0, 4) == "www.") $url = str_replace("www.", "", $url);
+
+if (substr($url,strpos($url,"."))=='.local'){
+	$url = "lin.local";
+} else {
+	$url = substr(substr($url,strpos($url,".")),1);
+}
+
+if (!strpos($url, 'http://')) {
+	$url= 'http://' . $url;
+}
+
+
+
+$f3->set("_api_url",$url);
+
+
+
+
+
+
+
+
+
+
+
 
 $domain = api_fetch("domain/_micro",$f3->get("ttl"));
 $domain = $domain['data'];
@@ -124,6 +153,17 @@ $f3->route('GET /ui/_images/events/@filename', function ($f3,$params) {
 
 
 
+
+$f3->route('GET|POST /media/*', function ($f3,$params) {
+	$request = parse_url($_SERVER['REQUEST_URI']);
+	$path = $request["path"];
+	$api = $f3->get("_api_url");
+	$path = $api . $path . "?" . $_SERVER['QUERY_STRING'];
+	
+	$imginfo = getimagesize($path);
+	header("Content-type: ".$imginfo['mime']);
+	readfile($path);
+});
 
 $f3->route('GET /php', function () {
 	phpinfo();

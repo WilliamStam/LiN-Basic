@@ -2,18 +2,13 @@
 
 function api_fetch($part,$ttl=false){
 	$f3 = \Base::instance();
-	$url = strtolower($_SERVER['HTTP_HOST']);
-	if (substr($url, 0, 4) == "www.") $url = str_replace("www.", "", $url);
-	
-	if (substr($url,strpos($url,"."))=='.local'){
-		$url = "lin.local";
-	} else {
-		$url = substr(substr($url,strpos($url,".")),1);
-	}
+	$url = $f3->get("_api_url");
 	
 
 	
-	$url = "http://".$url . "/api/" . $part;
+	$url = $url . "/api/" . $part;
+	
+	
 	$apiHits = $f3->get("_api_hits");
 	$apiHits[] = $url;
 	$f3->set("_api_hits",$apiHits);

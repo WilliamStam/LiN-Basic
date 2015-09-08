@@ -2,7 +2,7 @@
 	
 	
 
-{{ _domain['micro']['masterhead']|raw }}
+{{ _domain['masterhead']|raw }}
 
 <nav class="navbar navbar-default" style='margin:0;'>
 	<div class="container-fluid">
@@ -26,7 +26,6 @@
 			<ul class="nav nav-pills pull-right" style="margin:0 20px 0 0 ;">
 				<li role="presentation"{% if _page == "/search" %} class="active"{% endif %}><a href="/search">Search</a></li>
 					<li role="presentation"{% if _page == "events/list" %} class="active"{% endif %}><a href="/events">Events</a></li>
-				
 				<li class=""></li>
 			</ul>
 		</div>
