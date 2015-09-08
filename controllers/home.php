@@ -12,7 +12,7 @@ class home extends _ {
 		$cfg = $this->cfg;
 		$page = isset($_GET['page'])?$_GET['page']:'1';
 
-		$articles = $this->api("article/_list?limit=0,10&thumb_width=64&thumb_height=64&pagination=9&page=$page");
+		$articles = $this->api("article/_list?limit=0,6&thumb_width=64&thumb_height=64&pagination=9&page=$page");
 		$categories = $this->api("category/_list");
 		
 		//test_array($articles); 

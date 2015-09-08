@@ -17,7 +17,7 @@ class article_list extends _ {
 		if ($category['ID']=='')$this->f3->error("404");
 		//test_array($category); 
 		
-		$articles = $this->api("article/_list?limit=0,10&thumb_width=64&thumb_height=64&pagination=9&page=$page&category={$category['ID']}");
+		$articles = $this->api("article/_list?limit=0,6&thumb_width=64&thumb_height=64&pagination=9&page=$page&category={$category['ID']}");
 		$categories = $this->api("category/_list");
 		
 		//test_array($articles); 
