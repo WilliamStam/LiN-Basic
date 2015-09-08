@@ -27,7 +27,7 @@
 	{% for row in article['photos'] %}
 		{% if row['ID'] != article['thumbnail']['ID'] and row['description']=='' %}
 			
-					<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" class='media-left pull-left c' target='_blank' style='background-color: #ccc; float:left; margin:10px;'>
+					<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" class='media-left pull-left c' target='_blank' style='float:left; margin:10px;'>
 						<img alt="" src="/photo/files/{{ row['ID'] }}/200/200/{{ row['filename_orig'] }}" >
 					</a>
 				
@@ -41,7 +41,7 @@
 			{% if row['ID'] != article['thumbnail']['ID'] and row['description']!='' %}
 			<div style="margin-top:20px;">
 				<div class="media-left pull-left">
-					<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" target='_blank' style='width:200px; height:200px; background-color: #ccc;'>
+					<a href="/photo/files/{{ row['ID'] }}/600/600/{{ row['filename_orig'] }}" target='_blank' style='width:200px;' class='c'>
 				<img alt="" src="/photo/files/{{ row['ID'] }}/200/200/{{ row['filename_orig'] }}">
 					</a>
 				</div>
