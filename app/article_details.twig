@@ -10,8 +10,9 @@
 <hr>
 <article>
 	{% if article['thumbnail']['ID'] %}
-	<div class="media-left pull-left c">
+	<div class="media-left pull-left c"><a href="/photo/files/{{ article['thumbnail']['ID'] }}/600/600/{{ article['thumbnail']['filename_orig'] }}" target='_blank' style='width:200px;' class='c'>
 		<img class="" src="/photo/files/{{ article['thumbnail']['ID'] }}/200/200/{{ article['thumbnail']['filename_orig'] }}" alt="..." style="background-color: #ccc;">
+			</a>
 		<div class="caption" style="max-width: 200px; padding: 5px 0 5px 0" >
 			{{ article['thumbnail']['description']|raw() }}
 		</div>
