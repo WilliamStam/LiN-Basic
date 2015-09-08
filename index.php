@@ -26,8 +26,8 @@ require_once('config.default.inc.php');
 if (file_exists("config.inc.php")) {
 	require_once('config.inc.php');
 }
+	$f3->set("ttl",false);
 
-$f3->set("ttl",10);
 $f3->set('AUTOLOAD', './|lib/|controllers/|inc/|/modules/');
 $f3->set('PLUGINS', 'vendor/bcosca/fatfree/lib/');
 $f3->set('CACHE', true);

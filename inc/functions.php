@@ -1,6 +1,6 @@
 <?php
 
-function api_fetch($part,$ttl=0){
+function api_fetch($part,$ttl=false){
 	$f3 = \Base::instance();
 	$url = strtolower($_SERVER['HTTP_HOST']);
 	if (substr($url, 0, 4) == "www.") $url = str_replace("www.", "", $url);
@@ -21,7 +21,7 @@ function api_fetch($part,$ttl=0){
 	$key = md5($url);
 	$cache = new \Cache($key);
 	//test_array($url);
-	if ( $cache->exists($key)){
+	if ( $cache->exists($key) && $ttl){
 		$data = json_decode($cache->get($key),true);
 	} else {
 		

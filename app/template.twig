@@ -17,9 +17,13 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 	<link rel="stylesheet" href="/app/style.{{ _v }}.css">
+	<style type="text/css">
+		{{ _domain['micro']['css']|raw }}
+	</style>
 	{% if page['template_css'] %}
 		<link rel="stylesheet" href="{{ page['template_css'] }}">
 	{% endif %}
+	
 	<script src="/vendor/components/modernizr/modernizr.{{ _v }}.js"></script>
 </head>
 <body>

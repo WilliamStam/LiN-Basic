@@ -1,9 +1,7 @@
 <section class="container">
 	<hr>
 	{% include "_navbar.twig" %}
-	<div class="c">
-		- Copyright {{ _domain['prefered_url']['url'] }} ({{ "now"|date("Y") }}) -
-	</div>
+	{{ _domain['micro']['footer']|raw }}
 </section>
 
 {% if _isLocal %}
