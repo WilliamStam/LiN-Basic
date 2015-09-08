@@ -1,6 +1,7 @@
 <?php
 
 function api_fetch($part,$ttl=0){
+	$f3 = \Base::instance();
 	$url = strtolower($_SERVER['HTTP_HOST']);
 	if (substr($url, 0, 4) == "www.") $url = str_replace("www.", "", $url);
 	
@@ -13,6 +14,10 @@ function api_fetch($part,$ttl=0){
 
 	
 	$url = "http://".$url . "/api/" . $part;
+	$apiHits = $f3->get("_api_hits");
+	$apiHits[] = $url;
+	$f3->set("_api_hits",$apiHits);
+	
 	$key = md5($url);
 	$cache = new \Cache($key);
 	//test_array($url);

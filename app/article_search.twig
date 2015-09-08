@@ -1,0 +1,52 @@
+<form action="/search" method="get" class="form-inline c">
+	<div class="form-group">
+			<input type="text" class="form-control search" id="search" name='search' placeholder="Search String" value='{{ search }}'>
+	</div>
+	<div class="form-group">
+		<select name="catID" id="catID" class="form-control">
+			<option value="">All Categories</option>
+			<optgroup label='Categories'>
+				{% for row in _domain['categories'] %}
+				<option value="{{ row['ID'] }}" {% if catID==row['ID'] %}selected='selected'{% endif %}>{{ row['category'] }}</option>
+				{% endfor %}
+			</optgroup>
+			
+		</select>
+	</div>
+	<button type="submit" class="btn btn-default form-control">Search</button>
+
+</form>
+<hr>
+{% for row in articles['list'] %}
+	
+	<div class="media">
+		<div class="media-left">
+			
+			<a href="/articles/{{ row['category']['url'] }}/{{ row['publishDate']['date'] }}/{{ row['ID'] }}/{{ row['url'] }}">
+				{% if row['thumbnail']['ID'] %}
+					<img class="media-object" src="{{ row['thumbnail']['path'] }}" style="background-color: #ccc; width:64px;height:64px;">
+				{% else %}
+					<div style="width:64px;height:64px;"></div>
+				{% endif %}
+			</a>
+		
+		</div>
+		<div class="media-body">
+			<h4 class="media-heading">
+				<a href="/articles/{{ row['category']['url'] }}/{{ row['publishDate']['date'] }}/{{ row['ID'] }}/{{ row['url'] }}">{{ row['heading']|raw }}</a>
+			</h4>
+			
+			<div class="s g">
+				<strong>{{ row['category']['label'] }}</strong> |
+				<em title="{{ row['publishDate']['date_time'] }}">{{ row['publishDate']['timeago'] }}</em>
+				
+				                                                | by: {{ row['author']['label'] }}
+				                                                | {{ row['comment_count'] }} comments
+				                                                | {{ row['viewed'] }} viewed
+			</div>
+			{{ row['synopsis']|raw() }}
+		</div>
+	</div>
+
+{% endfor %}
+{% include "_pagination.twig" %}

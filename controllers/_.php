@@ -14,7 +14,7 @@ class _ {
 
 	function api($part,$ttl=0){
 		
-		$data = api_fetch($part,$ttl=0);
+		$data = api_fetch($part,$this->f3->get("ttl"));
 
 		
 

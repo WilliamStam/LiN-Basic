@@ -26,7 +26,8 @@
 			</ul>
 			
 			<ul class="nav nav-pills pull-right" style="margin:0 20px 0 0 ;">
-				<li role="presentation"{% if _page == "events/list" %} class="active"{% endif %}><a href="/events">Events</a></li>
+				<li role="presentation"{% if _page == "/search" %} class="active"{% endif %}><a href="/search">Search</a></li>
+					<li role="presentation"{% if _page == "events/list" %} class="active"{% endif %}><a href="/events">Events</a></li>
 				
 				<li class=""></li>
 			</ul>
@@ -36,7 +37,7 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav nav-pills pull-left hidden-md hidden-lg">
-				{% for row in categories['list'] %}
+				{% for row in _domain['categories'] %}
 					<li role="presentation"{% if _page == "articles/"~ row['url'] %} class="active"{% endif %}><a href="/articles/{{ row['url'] }}">{{ row['category'] }}</a></li>
 				{% endfor %}
 			</ul>
@@ -54,7 +55,7 @@
 <div class='hidden-sm hidden-xs'>
 	<div class="container">
 		<ul class="nav nav-pills pull-right nav-justified" style="margin:0;">
-			{% for row in categories['list'] %}
+			{% for row in _domain['categories'] %}
 					<li role="presentation"{% if _page == "articles/"~ row['url'] %} class="active"{% endif %}><a href="/articles/{{ row['url'] }}">{{ row['category'] }}</a></li>
 			{% endfor %}
 		</ul>

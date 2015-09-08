@@ -15,7 +15,6 @@ class article_details extends _ {
 		$article = $article['data'];
 		if ($article['ID']=='')$this->f3->error("404");
 		
-		$categories = $this->api("category/_list");
 
 		
 		//test_array($articles); 
@@ -33,7 +32,6 @@ class article_details extends _ {
 		);
 		$tmpl->article = $article;
 		$tmpl->_page = "articles/".$article['category']['url'];
-		$tmpl->categories = $categories['data'];
 		$tmpl->output();
 		
 	}

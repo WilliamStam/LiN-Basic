@@ -15,7 +15,6 @@ class event_list extends _ {
 		
 		$data = $this->api("event/_list?limit=0,100&daterange=monthfuture&orderby=dateStart+ASC");
 		$data = $data['data']['list'];
-		$categories = $this->api("category/_list");
 
 
 		
@@ -37,7 +36,6 @@ class event_list extends _ {
 		$tmpl->_page = "events/list";
 		$tmpl->data = $data;
 		$tmpl->data_orig = $data;
-		$tmpl->categories = $categories['data'];
 		$tmpl->output();
 		
 	}

@@ -17,8 +17,7 @@ class article_list extends _ {
 		if ($category['ID']=='')$this->f3->error("404");
 		//test_array($category); 
 		
-		$articles = $this->api("article/_list?limit=0,6&thumb_width=64&thumb_height=64&pagination=9&page=$page&category={$category['ID']}");
-		$categories = $this->api("category/_list");
+		$articles = $this->api("article/_list?limit=0,10&thumb_width=64&thumb_height=64&pagination=9&page=$page&category={$category['ID']}");
 		
 		//test_array($articles); 
 		
@@ -35,7 +34,6 @@ class article_list extends _ {
 		);
 		$tmpl->_page = "articles/".$category['url'];
 		$tmpl->articles = $articles['data'];
-		$tmpl->categories = $categories['data'];
 		$tmpl->pagination = isset($articles['data']['pagination'])?$articles['data']['pagination']:false;
 		$tmpl->output();
 		

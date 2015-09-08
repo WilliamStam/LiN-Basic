@@ -59,6 +59,7 @@ class template {
 		$this->vars['_folder'] = $this->vars['folder'];
 
 		$this->vars['_domain'] =  $this->f3->get('domain');
+		$this->vars['_api_hits'] =  $this->f3->get('_api_hits');
 
 
 		

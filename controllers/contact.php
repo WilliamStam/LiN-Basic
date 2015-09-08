@@ -12,7 +12,6 @@ class contact extends _ {
 		$page = isset($_GET['page'])?$_GET['page']:'1';
 
 		
-		$categories = $this->api("category/_list");
 		
 		//test_array($articles); 
 		
@@ -28,7 +27,6 @@ class contact extends _ {
 			"js"=>"",
 		);
 		$tmpl->_page = "about";
-		$tmpl->categories = $categories['data'];
 		$tmpl->output();
 		
 	}

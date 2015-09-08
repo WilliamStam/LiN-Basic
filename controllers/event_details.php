@@ -15,7 +15,6 @@ class event_details extends _ {
 		$data = $data['data'];
 		if ($data['ID']=='')$this->f3->error("404");
 		
-		$categories = $this->api("category/_list");
 
 
 		$list = $this->api("event/_list?limit=0,100&daterange=monthfuture&orderby=dateStart+ASC");
@@ -37,7 +36,6 @@ class event_details extends _ {
 		$tmpl->data = $data;
 		$tmpl->list = $list;
 		$tmpl->_page = "events/list";
-		$tmpl->categories = $categories['data'];
 		$tmpl->output();
 		
 	}

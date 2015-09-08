@@ -5,3 +5,13 @@
 		- Copyright {{ _domain['prefered_url']['url'] }} ({{ "now"|date("Y") }}) -
 	</div>
 </section>
+
+{% if _isLocal %}
+	<ul>
+		
+	
+{% for row in _api_hits %}
+	<li>{{ row }}</li>
+	{% endfor %}
+	</ul>
+{% endif %}

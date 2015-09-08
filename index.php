@@ -14,9 +14,8 @@ if (!$SID) {
 }
 $GLOBALS["output"] = array();
 $GLOBALS["models"] = array();
-require_once('vendor/twig/Twig/lib/Twig/Autoloader.php');
-Twig_Autoloader::register();
-$f3 = require('vendor/bcosca/fatfree/lib/base.php');
+require_once('vendor/autoload.php');
+$f3 = \Base::instance();
 require('inc/timer.php');
 require('inc/template.php');
 require('inc/functions.php');
@@ -28,7 +27,7 @@ if (file_exists("config.inc.php")) {
 	require_once('config.inc.php');
 }
 
-
+$f3->set("ttl",10);
 $f3->set('AUTOLOAD', './|lib/|controllers/|inc/|/modules/');
 $f3->set('PLUGINS', 'vendor/bcosca/fatfree/lib/');
 $f3->set('CACHE', true);
@@ -37,14 +36,16 @@ $f3->set('cfg', $cfg);
 $f3->set('DEBUG',3);
 
 $f3->set('TZ', 'Africa/Johannesburg');
+$f3->set("_api_hits",array());
 
-
-$domain = api_fetch("domain/_micro",$ttl=0);
+$domain = api_fetch("domain/_micro",$f3->get("ttl"));
 $domain = $domain['data'];
 if ($domain['ID']==''){
 	$f3->error("404");
 }
 $f3->set("domain",$domain);
+
+
 
 //test_array($domain); 
 
@@ -73,6 +74,7 @@ $f3->set('_v', $minVersion);
 
 
 $f3->route('GET|POST /', 'controllers\home->page');
+$f3->route('GET|POST /search', 'controllers\article_search->page');
 $f3->route('GET|POST /articles/@category', 'controllers\article_list->page');
 $f3->route('GET|POST /articles/@category/*/@ID/*', 'controllers\article_details->page');
 
