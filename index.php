@@ -120,9 +120,10 @@ $f3->route('GET|POST /contact', 'controllers\contact->page');
 
 $f3->route('GET /thumbnail/files/@ID/@w/@h/@filename', function ($f3,$params) {
 	$web = new \Web();
-	$cfg = $f3->get("cfg");
-	$api = $cfg['api'];
-	$remoteImage = $api ."thumbnail/files/".$params['ID']."/".$params['w']."/".$params['h']."/".$params['filename']."";
+	$api = $f3->get("_api_url");
+	$remoteImage = $api ."/thumbnail/files/".$params['ID']."/".$params['w']."/".$params['h']."/".$params['filename']."";
+	
+	//test_array($remoteImage); 
 	$remoteImage = str_replace(" ", "%20", $remoteImage);
 	$imginfo = getimagesize($remoteImage);
 	header("Content-type: ".$imginfo['mime']);
@@ -132,9 +133,8 @@ $f3->route('GET /thumbnail/files/@ID/@w/@h/@filename', function ($f3,$params) {
 
 $f3->route('GET /photo/files/@ID/@w/@h/@filename', function ($f3,$params) {
 	$web = new \Web();
-	$cfg = $f3->get("cfg");
-	$api = $cfg['api'];
-	$remoteImage = $api ."photo/files/".$params['ID']."/".$params['w']."/".$params['h']."/".$params['filename']."";
+	$api = $f3->get("_api_url");
+	$remoteImage = $api ."/photo/files/".$params['ID']."/".$params['w']."/".$params['h']."/".$params['filename']."";
 	$remoteImage = str_replace(" ", "%20", $remoteImage);
 	$imginfo = getimagesize($remoteImage);
 	header("Content-type: ".$imginfo['mime']);
@@ -143,9 +143,8 @@ $f3->route('GET /photo/files/@ID/@w/@h/@filename', function ($f3,$params) {
 });
 $f3->route('GET /ui/_images/events/@filename', function ($f3,$params) {
 	$web = new \Web();
-	$cfg = $f3->get("cfg");
-	$api = $cfg['api'];
-	$remoteImage = $api ."ui/_images/events/".$params['filename']."";
+	$api = $f3->get("_api_url");
+	$remoteImage = $api ."/ui/_images/events/".$params['filename']."";
 
 	$imginfo = getimagesize($remoteImage);
 	header("Content-type: ".$imginfo['mime']);
