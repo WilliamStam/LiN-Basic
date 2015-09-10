@@ -24,7 +24,7 @@
 			</ul>
 			
 			<ul class="nav nav-pills pull-right" style="margin:0 20px 0 0 ;">
-				<li role="presentation"{% if _page == "/search" %} class="active"{% endif %}><a href="/search">Search</a></li>
+				
 					<li role="presentation"{% if _page == "events/list" %} class="active"{% endif %}><a href="/events">Events</a></li>
 				<li class=""></li>
 			</ul>
@@ -39,7 +39,7 @@
 				{% endfor %}
 			</ul>
 			
-			<ul class="nav nav-pills pull-right">
+			<ul class="nav nav-pills pull-right"><li role="presentation"{% if _page == "/search" %} class="active"{% endif %}><a href="/search">Search</a></li>
 				<li role="presentation"{% if _page == "contact" %} class="active"{% endif %}><a href="/contact">Contact Us</a></li>
 				<li role="presentation"><a href="http://{{ _domain['prefered_url']['url'] }}">Website</a></li>
 			</ul>
